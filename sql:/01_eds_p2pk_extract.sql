@@ -1,0 +1,1 @@
+SELECT * FROM `sixth-wave-484005-t0.btc_eds_ljw.24_26_eds` LIMIT 1000
