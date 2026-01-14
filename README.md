@@ -85,6 +85,19 @@ All metrics are computed at the **address level**, implying a conservative lower
 
 ---
 
+## SQL Pipeline
+
+- `01_eds_p2pk_extract.sql`  
+  Constructs Exposed Dormant Supply (EDS) from P2PK UTXOs under multiple dormancy thresholds.
+
+- `02_stress_test_hhi.sql`  
+  Implements structural stress tests by reallocating EDS under alternative allocation paths and computing HHI.
+
+- `03_stress_test_nakamoto.sql`  
+  Computes Nakamoto coefficients (33%) from post-shock distributions to assess governance concentration.
+
+---
+
 ## Reproducibility
 
 1. Execute the SQL scripts in the `sql/` directory using Google BigQuery.
