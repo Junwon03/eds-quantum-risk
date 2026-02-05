@@ -2,8 +2,9 @@
 
 This repository provides the data and code necessary to reproduce the empirical results of the paper:
 
-**“Quantum Security Risks and the Decentralization Paradox of Bitcoin”**  
+**“The Paradox of Quantum Security Risk in Bitcoin”**  
 SSRN preprint, December 25, 2025
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5965774 
 
 The study introduces **Exposed Dormant Supply (EDS)** as a measurable pre-shock vulnerability pool and conducts structural stress tests to evaluate how exogenous cryptographic shocks (e.g., post-quantum threats) may affect concentration and governance outcomes in Bitcoin.
 
