@@ -1,1 +1,0 @@
-SELECT * FROM `sixth-wave-484005-t0.btc_eds_ljw.hhi_nakomoto` LIMIT 1000
