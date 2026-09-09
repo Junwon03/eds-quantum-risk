@@ -210,22 +210,28 @@ The principal analysis files are:
 | `07a_trackA_reconcile_bip30_corrected.sql` | Track-A reconciliation | `results/trackA_reconcile_bip30_corrected.csv` |
 | `07b_ownership_robustness_bip30_corrected.sql` | Ownership-definition robustness | `results/ownership_robustness_bip30_corrected.csv` |
 | `08_tau_sensitivity_bip30_corrected.sql` | tau = 25%, 33%, 50% sensitivity | `results/tau_sensitivity_bip30_corrected.csv` |
-| `09_final_qc_bip30_corrected.sql` | Final cross-query quality-control checks | `results/final_qc_bip30_corrected.csv` |
+| `09_final_qc_bip30_corrected.sql` | Final audit query against the original pre-correction BigQuery source | `results/final_qc_bip30_corrected.csv` |
 
-Run the relevant SQL query in BigQuery and compare its output with the corresponding CSV in `results/`.
+To reproduce the current corrected analytical results, run the relevant analysis queries from `02_baseline_bip30_corrected.sql` through `08_tau_sensitivity_bip30_corrected.sql` in BigQuery and compare their outputs with the corresponding CSV files in `results/`.
+
+`09_final_qc_bip30_corrected.sql` is retained as a final audit query and is not fully reproducible from the corrected CSV exports alone because part of its QC logic verifies properties of the original pre-correction BigQuery source.
 
 ### 4. Audit of the original pre-correction source
 
-`00_inspect_eds_schema.sql` and `01_diagnose_bip30_duplicates.sql`, together with the BIP30-correction logic retained in later scripts, document how the historical source problem was identified and corrected.
+`00_inspect_eds_schema.sql` and `01_diagnose_bip30_duplicates.sql`, together with the BIP30-correction logic retained in the subsequent analysis scripts, document how the historical source issue was identified and corrected.
 
-These audit queries refer to the original pre-correction BigQuery source used during the study. That historical BigQuery table is not required to reproduce the **current corrected analysis** if the frozen corrected CSV files in `data/` are used.
+`09_final_qc_bip30_corrected.sql` is the final audit query executed against the original pre-correction BigQuery source. Its overall `PASS` status includes verification that the original source contained exactly two historical BIP30 duplicate outpoint groups.
+
+Because the repository provides the frozen **BIP30-corrected** analysis population rather than the complete original pre-correction BigQuery table, the overall `PASS` status of `09_final_qc_bip30_corrected.sql` cannot be reproduced from the corrected CSV exports alone. The frozen output in `results/final_qc_bip30_corrected.csv` is therefore retained as an audit record of the final QC execution.
+
+The original pre-correction BigQuery table is not required to reproduce the current corrected analytical results. Those results can be reproduced from the CSV files in `data/` using the relevant analysis queries from `02_baseline_bip30_corrected.sql` through `08_tau_sensitivity_bip30_corrected.sql`.
 
 In other words:
 
-- `data/` provides the corrected analysis population needed to reproduce the current results.
-- `sql/` provides the actual BigQuery calculations used in the study.
-- `results/` provides the frozen outputs against which a reproduction can be checked.
-- the pre-correction SQL path is retained as an audit trail for the BIP30 correction.
+- `data/` provides the frozen BIP30-corrected analysis population required to reproduce the current analytical results.
+- `sql/02` through `sql/08` contain the BigQuery calculations used to reproduce the corrected baseline, stress tests, robustness analyses, and sensitivity analyses.
+- `results/` provides the frozen outputs against which those reproduced results can be checked.
+- `sql/00`, `sql/01`, and `sql/09` preserve the original-source inspection, BIP30 diagnosis, and final QC audit trail.
 
 ---
 
