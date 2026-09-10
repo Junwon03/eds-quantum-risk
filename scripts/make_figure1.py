@@ -160,24 +160,17 @@ delta_n = np.array(
 # Font
 # ============================================================
 
-available_fonts = {
-    f.name for f in font_manager.fontManager.ttflist
-}
-
-if "Times New Roman" in available_fonts:
-    SERIF = "Times New Roman"
-elif "Times" in available_fonts:
-    SERIF = "Times"
-else:
-    SERIF = "DejaVu Serif"
-
+# Fixed cross-platform font. DejaVu Serif ships with Matplotlib,
+# so macOS and GitHub Actions use the same typeface.
+SERIF = "STIXGeneral"
 print("Figure font:", SERIF)
+print("Matplotlib version:", matplotlib.__version__)
 
 plt.rcParams.update({
     "font.family": SERIF,
     "mathtext.fontset": "stix",
     "font.size": 11.0,
-    "axes.titlesize": 15.5,
+    "axes.titlesize": 14.3,
     "axes.labelsize": 13.2,
     "xtick.labelsize": 10.8,
     "ytick.labelsize": 10.8,
@@ -268,10 +261,11 @@ axA.set_ylabel(
 axA.yaxis.set_label_coords(-0.073, 0.50)
 
 axA.set_title(
-    r"A. HHI response under defensive dispersion "
+    r"A. HHI under defensive dispersion "
     r"($\alpha = 10\%$)",
     loc="left",
     fontweight="bold",
+    fontsize=14.3,
     pad=7,
 )
 
@@ -385,10 +379,11 @@ axB.set_ylabel(
 axB.yaxis.set_label_coords(-0.080, 0.50)
 
 axB.set_title(
-    r"B. Nakamoto-coefficient response under defensive "
-    r"dispersion ($\alpha = 10\%$)",
+    r"B. Nakamoto coefficient under defensive dispersion "
+    r"($\alpha = 10\%$)",
     loc="left",
     fontweight="bold",
+    fontsize=14.3,
     pad=7,
 )
 
@@ -449,22 +444,13 @@ axB.tick_params(
 # Note
 # ============================================================
 
+# Single text object avoids spacing differences across platforms.
 fig.text(
     0.027,
     0.021,
-    "Note:",
-    fontsize=10.6,
-    fontweight="bold",
-    ha="left",
-    va="bottom",
-)
-
-fig.text(
-    0.078,
-    0.021,
-    "Shaded area indicates the metric-disagreement region "
+    r"$\mathbf{Note:}$  Shaded area indicates the metric-disagreement region "
     r"($m = 1{,}569$–$2{,}558$).",
-    fontsize=10.6,
+    fontsize=10.4,
     ha="left",
     va="bottom",
 )
