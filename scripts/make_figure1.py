@@ -448,7 +448,7 @@ axB.tick_params(
 fig.text(
     0.027,
     0.021,
-    r"$\mathbf{Note:}$  Shaded area indicates the metric-disagreement region "
+    r"Note: Shaded area indicates the metric-disagreement region "
     r"($m = 1{,}569$–$2{,}558$).",
     fontsize=10.4,
     ha="left",
