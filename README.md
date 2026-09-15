@@ -1,23 +1,31 @@
-# EDS Quantum Risk
+# Dormant Bitcoin Supply and Concentration Risk
 
-Reproducibility repository for a working study of dormant Bitcoin supply, conditional remobilization, and ownership concentration.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22764929.svg)](https://doi.org/10.5281/zenodo.22764929)
 
-This repository contains the **BIP30-corrected analysis package** for the Bitcoin EDS snapshot dated **2026-01-01** with a **5-year dormancy threshold**.
+Reproducibility repository for the study of dormant Bitcoin supply,
+conditional remobilization, and ownership concentration.
 
-The associated manuscript is still in preparation. This repository therefore documents the data, SQL calculations, frozen outputs, and correction history used in the analysis, without attempting to reproduce the final manuscript text or journal formatting.
+This repository contains the BIP30-corrected analysis package for the
+Bitcoin EDS snapshot dated **2026-01-01** with a **5-year dormancy threshold**.
 
 ---
 
 ## Current analysis status
 
-**Canonical analysis version:** v3-bip30fix  
+**Archival release:** v1.0.0  
+**Computational analysis version:** v3-bip30fix  
+**Zenodo DOI:** https://doi.org/10.5281/zenodo.22764929  
 **Snapshot date:** 2026-01-01  
 **Dormancy threshold:** 5 years  
 **Final QC:** PASS
 
-This version supersedes the earlier pre-BIP30 quantitative outputs.
+The v1.0.0 archival release contains the canonical BIP30-corrected
+analysis package used for the current manuscript.
 
-Earlier repository states remain available through Git history and the `pre-bip30-v2` tag for audit purposes, but they should not be used as the current quantitative results.
+The earlier pre-BIP30 quantitative outputs are superseded.
+Earlier repository states remain available through Git history and the
+`pre-bip30-v2` tag for audit purposes, but they should not be used as
+the current quantitative results.
 
 ---
 
@@ -118,11 +126,23 @@ See `docs/BIP30_CORRECTION.md` for the detailed correction note.
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── build_figure1.yml
+├── .gitignore
+├── CITATION.cff
+├── LICENSE
 ├── README.md
+├── requirements-figure.txt
 ├── data/
 │   ├── eds_utxo_20260101_t5_bip30fix.csv
 │   ├── eds_addrbal_20260101_t5_bip30fix.csv
 │   └── trackA_entity_membership_v1.csv
+│
+├── figures/
+│   ├── Figure1_FRL_final.pdf
+│   ├── Figure1_FRL_final.png
+│   └── Figure1_source_data.csv
 │
 ├── results/
 │   ├── baseline_bip30_corrected.csv
@@ -135,6 +155,9 @@ See `docs/BIP30_CORRECTION.md` for the detailed correction note.
 │   ├── ownership_robustness_bip30_corrected.csv
 │   ├── tau_sensitivity_bip30_corrected.csv
 │   └── final_qc_bip30_corrected.csv
+│
+├── scripts/
+│   └── make_figure1.py
 │
 ├── sql/
 │   ├── 00_inspect_eds_schema.sql
@@ -347,24 +370,41 @@ HHI and Nakamoto coefficients measure numerical ownership concentration under th
 
 ## Manuscript status
 
-The associated manuscript is currently in preparation.
+The associated manuscript is:
 
-The final manuscript title, citation, journal information, and persistent archival identifier will be added when the submission package is finalized.
+**Dormant Bitcoin Supply and Concentration Risk**
 
-Working research theme:
+The manuscript is being finalized for journal submission.
 
-**Dormant Bitcoin supply, redistribution pathways, recipient granularity, and concentration risk.**
+The archived v1.0.0 reproducibility package is available at:
+
+https://doi.org/10.5281/zenodo.22764929
 
 ---
 
 ## Citation
 
-Citation metadata will be added when the archival release and manuscript metadata are finalized.
+For the archived reproducibility package, please cite:
 
-Until then, users should identify the repository version or release tag used in their analysis.
+> Lee, J. (2026). *Dormant Bitcoin Supply and Concentration Risk*
+> (Version v1.0.0) [Computer software]. Zenodo.
+> https://doi.org/10.5281/zenodo.22764929
+
+GitHub release: `v1.0.0`
+
+For a DOI that resolves to the latest archived version of this repository,
+use: https://doi.org/10.5281/zenodo.22764928
+
+---
+
+## License
+
+This repository is released under the MIT License. See `LICENSE` for details.
 
 ---
 
 ## Contact
 
-Repository maintained by **Junwon Lee**.
+Repository maintained by **Junwon Lee**.  
+ORCID: https://orcid.org/0009-0008-7951-646X
+E-mail: herrang0311@dankook.ac.kr
