@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or data package, please cite it using the metadata below."
+title: "Dormant Bitcoin Supply and Concentration Risk"
+version: "1.0.0"
+type: software
+license: MIT
+authors:
+  - given-names: Junwon
+    family-names: Lee
+    affiliation: Dankook University
+repository-code: "https://github.com/Junwon03/eds-quantum-risk"
+keywords:
+  - Bitcoin
+  - dormant supply
+  - ownership concentration
+  - stress testing
+  - reproducibility
