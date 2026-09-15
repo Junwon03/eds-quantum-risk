@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - "scripts/make_figure1.py"
+      - "requirements-figure.txt"
       - "data/eds_addrbal_20260101_t5_bip30fix.csv"
       - "results/baseline_bip30_corrected.csv"
       - ".github/workflows/build_figure1.yml"
@@ -26,7 +27,7 @@ jobs:
       - name: Install figure dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install numpy pandas matplotlib
+          python -m pip install -r requirements-figure.txt
 
       - name: Generate Figure 1
         run: |
