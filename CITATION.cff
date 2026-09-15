@@ -8,6 +8,8 @@ authors:
   - given-names: Junwon
     family-names: Lee
     affiliation: Dankook University
+    orcid: "https://orcid.org/0009-0008-7951-646X"
+    email: "herrang0311@dankook.ac.kr"
 repository-code: "https://github.com/Junwon03/eds-quantum-risk"
 keywords:
   - Bitcoin
